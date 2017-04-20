@@ -1,9 +1,12 @@
 FROM registry.access.redhat.com/rhel7
 ENV container docker
 
-RUN yum -y update; yum clean all
+#RUN yum -y update; yum clean all
 
-RUN yum -y swap -- remove systemd-container systemd-container-libs -- install systemd systemd-libs dbus fsck.ext4
+#RUN yum -y swap -- remove systemd-container systemd-container-libs -- install systemd systemd-libs dbus fsck.ext4
+
+RUN curl http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm -o /opt/epel-release-7-9.noarch.rpm
+RUN rpm -ivh /opt/epel-release-7-9.noarch.rpm
 
 RUN systemctl mask dev-mqueue.mount dev-hugepages.mount \
     systemd-remount-fs.service sys-kernel-config.mount \
