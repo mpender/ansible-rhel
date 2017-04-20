@@ -42,5 +42,6 @@ EXPOSE 0-65535
 
 ENV TERM=xterm
 
+ENV TEST=test
 
 CMD ["/usr/sbin/init"]
